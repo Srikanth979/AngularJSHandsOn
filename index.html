@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="FormDemoApp">
+<head>
+<!--Script to include Angularjs library in the webpage
+Library can also be downloaded to local system.
+-->
+<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div ng-controller="myController">
+    <form name="myForm" ng-submit="submit()">
+      <div class="cla400">
+        <label for="username">UserName:</label>
+        <input type="text" name="username" ng-model="username" required/>
+        <span style="color: red;" ng-show="myForm.username.$error.required">*Required</span>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="text" name="password" ng-model="password" required/>
+        <span style="color: red;" ng-show="myForm.password.$error.required">*Required</span>
+      <div>
+      <div>
+        <ol>
+          <li ng-repeat="f in fruits | orderBy">{{f}}&emsp;
+            <button type="button" ng-click="removeFruit($index)">Delete Fruit</button>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <input type="text" ng-model="fruit"/>
+        <button type="button" ng-click="addFruit(fruit)" ng-ke>Add Fruit</button>
+        <span ng-if="errorBlk" style="color: red;">{{error}}</span>
+      </div>
+    </form>
+      {{working}}<br/>
+      {{someFruits}}
+      <div ng-show="onlineFruits.length > 0">
+        {{onlineFruits}}
+      </div>
+  </div>
+</body>
+</html>
