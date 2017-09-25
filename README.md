@@ -3,7 +3,7 @@
 2) Express dev web server:
   npm init -- creates current dir as node application
   npm install express --save
-  > configure express webserver in index.js
+  configure express webserver in index.js
   node index.js -- runs the node application
 3) Unit Testing setup:
   npm install karma --save-dev
