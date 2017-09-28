@@ -25,8 +25,6 @@ angular.module("FormDemoApp",[])
 
   vm.onlineFruits = [];
   fruitService.getOnlineFruits().then(function(data){
-    console.log("data is Array: "+ Array.isArray(data));
-    vm.onlineFruits = data;
-    console.log(vm.onlineFruits);
+    vm.onlineFruits = data;    
   });
 }]);

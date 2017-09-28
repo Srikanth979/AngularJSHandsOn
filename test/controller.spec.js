@@ -16,16 +16,21 @@
 describe("myController", function(){
     var $controller;
     var scope;
+    var fruitService;
     beforeEach(module('FormDemoApp'));
-    beforeEach(inject(function(_$controller_, $rootScope){
+    beforeEach(inject(function(_$controller_, $rootScope, FruitService){
       $controller = _$controller_;
       scope = $rootScope.$new();
+      fruitService = FruitService;
     }));
     it("should have three expense items", function(){
         var ctrl = $controller('myController', {$scope: scope});
         expect(ctrl.working).toBe(true);
         expect(ctrl.fruits.length).toBe(8);
-        //console.log(ctrl.onlineFruits);
         //expect(ctrl.onlineFruits.length).toBe(8);
+        //expect(fruitService.getOnlineFruits()).toHaveBeenCalled();
     });
+    it("Testing the fruitService", inject(function(FruitService){
+      expect(FruitService.cond).toBe(true);
+    }));
 });
