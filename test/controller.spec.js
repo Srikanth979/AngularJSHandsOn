@@ -1,4 +1,4 @@
-describe("Test suite of my Angular App", function(){
+/*describe("Test suite of my Angular App", function(){
   var $controller;
   beforeEach(function(){
     module('FormDemoApp');
@@ -9,8 +9,23 @@ describe("Test suite of my Angular App", function(){
   it("First Angular Test Case", function(){
     var $scope = {};
     var controller = $controller('myController', {$scope: $scope});
-    console.log($scope.working);
     expect($scope.working).toBe(true);
-    // /expect(1).toBe(1);
   });
+});
+*/
+describe("myController", function(){
+    var $controller;
+    var scope;
+    beforeEach(module('FormDemoApp'));
+    beforeEach(inject(function(_$controller_, $rootScope){
+      $controller = _$controller_;
+      scope = $rootScope.$new();
+    }));
+    it("should have three expense items", function(){
+        var ctrl = $controller('myController', {$scope: scope});
+        expect(ctrl.working).toBe(true);
+        expect(ctrl.fruits.length).toBe(8);
+        //console.log(ctrl.onlineFruits);
+        //expect(ctrl.onlineFruits.length).toBe(8);
+    });
 });

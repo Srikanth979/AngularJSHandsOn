@@ -1,31 +1,32 @@
 angular.module("FormDemoApp",[])
-.controller("myController", ['$scope', '$timeout', '$http', function($scope, $timeout, $http){
-  $scope.username = '';
-  $scope.password = '';
-  $scope.working = true;
-  $scope.fruits = ["Apple", "Custard Apple", "Orange", "Grape", "Pear", "kiwi", "PineApple", "Banana"];
-  $scope.someFruits = ["Apple", "Custard Apple", "Orange", "Grape", "Pear", "kiwi", "PineApple", "Banana"];
-  $scope.someFruits.splice(2,1);
-  $scope.error = ''
-  $scope.fruit = '';
-  $scope.addFruit = function(fruit){
+.controller("myController", ['$timeout', '$http', 'FruitService', function($timeout, $http, fruitService){
+  var vm = this;
+  vm.username = '';
+  vm.password = '';
+  vm.working = true;
+  vm.fruits = ["Apple", "Custard Apple", "Orange", "Grape", "Pear", "kiwi", "PineApple", "Banana"];
+  vm.someFruits = ["Apple", "Custard Apple", "Orange", "Grape", "Pear", "kiwi", "PineApple", "Banana"];
+  vm.someFruits.splice(2,1);
+  vm.error = ''
+  vm.fruit = '';
+  vm.addFruit = function(fruit){
     if(fruit !== ''){
-      $scope.fruits.push(fruit);
-      $scope.errorBlk = false;
-      $scope.fruit = '';
+      vm.fruits.push(fruit);
+      vm.errorBlk = false;
+      vm.fruit = '';
     }else{
-      $scope.errorBlk = true;
-      $scope.error = 'Please enter a Fruit!';
+      vm.errorBlk = true;
+      vm.error = 'Please enter a Fruit!';
     }
   };
-  $scope.removeFruit = function(index){
-    $scope.fruits.splice(index,1);
+  vm.removeFruit = function(index){
+    vm.fruits.splice(index,1);
   };
 
-  $scope.onlineFruits = [];
-  $http.get('./Fruits.json').then(function(res){
-    console.log("result: "+res.data.fruits);
-    $scope.onlineFruits = res.data.fruits;
-  }, function(err){console.log("Error catched: "+err)});
-
+  vm.onlineFruits = [];
+  fruitService.getOnlineFruits().then(function(data){
+    console.log("data is Array: "+ Array.isArray(data));
+    vm.onlineFruits = data;
+    console.log(vm.onlineFruits);
+  });
 }]);
