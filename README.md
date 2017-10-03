@@ -1,8 +1,7 @@
 # AngularJSHandsOn
 1) Clone the current Repo<br/>
 (Current Repository was built using <br/>npm init)<br/>
-2) Express dev web server:<br/>  
-  npm install<br/>
+2) Express dev web server:<br/>npm install<br/>
   configure express webserver in server.js<br/>
   node server.js -- runs the node application<br/>
 3) Unit Testing setup:<br/>
