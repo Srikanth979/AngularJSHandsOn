@@ -1,10 +1,9 @@
 # AngularJSHandsOn
-1) copy all resources from . dir
-2) Express dev web server:<br/>
-  npm init -- creates current dir as node application<br/>
-  npm install express --save<br/>
-  configure express webserver in index.js<br/>
-  node index.js -- runs the node application<br/>
+1) Clone the current Repo<br/>
+(Current Repository was built using <br/>npm init)<br/>
+2) Express dev web server:<br/>npm install<br/>
+  configure express webserver in server.js<br/>
+  node server.js -- runs the node application<br/>
 3) Unit Testing setup:<br/>
   npm install karma --save-dev<br/>
   npm install karma-jasmine karma-chrome-launcher jasmine-core --save-dev<br/>
