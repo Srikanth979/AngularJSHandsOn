@@ -4,7 +4,7 @@ angular.module('FormDemoApp')
     var deferred = $q.defer();
     this.cond = true;
     this.getOnlineFruits = function getOnlineFruits(){
-      $http.get('./Fruits.json').then(function(res){
+      $http.get('./fruit/Fruits.json').then(function(res){
         deferred.resolve(res.data.fruits);
       }, function(err){
         deferred.reject(err);

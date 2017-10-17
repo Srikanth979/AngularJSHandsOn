@@ -11,7 +11,8 @@ angular.module('FormDemoApp')
       <li ng-repeat="f in fruits">{{f}}</li>
       </ol>`,
       controller: function($scope){
-        console.log($scope.working);
+        // renaming value passed into custom directive
+        //console.log($scope.directiveWorking);
       },
     };
   });
