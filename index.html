@@ -3,7 +3,8 @@
 <head>
 <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 <script type="text/javascript" src="controller.js"></script>
-<script type="text/javascript" src="fruitService.js"></script>
+<script type="text/javascript" src="fruit/fruit.service.js"></script>
+<script type="text/javascript" src="fruit/fruit.directive.js"></script>
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -31,11 +32,12 @@
         <button type="button" ng-click="ctrl.addFruit(ctrl.fruit)" ng-ke>Add Fruit</button>
         <span ng-if="ctrl.errorBlk" style="color: red;">{{error}}</span>
       </div>
-    </form>      
+    </form>
       {{ctrl.someFruits}}
       <div ng-show="ctrl.onlineFruits.length > 0">
         {{ctrl.onlineFruits}}
       </div>
+      <fruit-directive fruits="ctrl.fruits" working="ctrl.working"></fruit-directive>
   </div>
 </body>
 </html>
